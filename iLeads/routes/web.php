@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/themeLogin');
 });
+Route::resource('user','UserController');
+Route::resource('leads','LeadsController');
+Route::resource('contractors','ContractorsController');
+Route::resource('prospects','ProspectsController');
+Route::resource('areas','AreasController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
