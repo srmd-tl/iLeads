@@ -60,7 +60,7 @@
                     </div>
                     <div class="kt-login__actions">
                       
-                      <button id="kt_login_signin_submit"  class="btn btn-brand btn-elevate kt-login__btn-primary">Sign In</button>
+                       <button class="btn btn-brand btn-elevate kt-login__btn-primary">Sign In</button>
                     </div>
                   </form>
                 </div>
