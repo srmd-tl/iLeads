@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('auth/themeLogin');
+    return view('welcome');
+});
+Route::get('master', function () {
+    return view('layouts/master');
 });
 Route::resource('user','UserController');
 Route::resource('leads','LeadsController');

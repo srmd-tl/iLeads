@@ -158,13 +158,15 @@
                                           <span class="form-text text-muted">We'll never share your email with anyone else.</span>
                                        </div>
                                     </div>
-                                    <div class="form-group row">
-                                       <label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
+                                    <div class="form-group row validated">
+                                       <label class="col-xl-3 col-lg-3 col-form-label" >Email Address</label> 
                                        <div class="col-lg-9 col-xl-9">
                                           <div class="input-group">
                                              <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                             <input type="text" class="form-control" value="anna.krox@loop.com" placeholder="Email" aria-describedby="basic-addon1">
+                                             <input type="text" class="form-control is-invalid" value="anna.krox@loop.com" placeholder="Email" aria-describedby="basic-addon1">
+
                                           </div>
+                                          <div class="invalid-feedback">Shucks, check the formatting of that and try again.</div>
                                        </div>
                                     </div>
                                     <div class="form-group form-group-last row">

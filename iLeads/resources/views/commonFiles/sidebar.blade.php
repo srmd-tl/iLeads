@@ -79,8 +79,8 @@
                <div class="kt-menu__submenu ">
                   <span class="kt-menu__arrow"></span>
                   <ul class="kt-menu__subnav">
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="allUsers.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Users</span><span class="kt-menu__link-badge"></span></a></li>
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="addUser.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New User</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('user.index')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Users</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('user.create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New User</span><span class="kt-menu__link-badge"></span></a></li>
                   </ul>
                </div>
             </li>
@@ -104,8 +104,8 @@
                <div class="kt-menu__submenu ">
                   <span class="kt-menu__arrow"></span>
                   <ul class="kt-menu__subnav">
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="allLeads.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Leads</span><span class="kt-menu__link-badge"></span></a></li>
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="addLead.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Lead</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('leads.index')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Leads</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('leads.create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Lead</span><span class="kt-menu__link-badge"></span></a></li>
                   </ul>
                </div>
             </li>
@@ -129,8 +129,8 @@
                <div class="kt-menu__submenu ">
                   <span class="kt-menu__arrow"></span>
                   <ul class="kt-menu__subnav">
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="allContractors.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Contractors</span><span class="kt-menu__link-badge"></span></a></li>
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="addContractor.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Contractor</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('contractors.index')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Contractors</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('contractors.create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Contractor</span><span class="kt-menu__link-badge"></span></a></li>
                   </ul>
                </div>
             </li>
@@ -150,8 +150,8 @@
                <div class="kt-menu__submenu ">
                   <span class="kt-menu__arrow"></span>
                   <ul class="kt-menu__subnav">
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="allProspects.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Prospects</span><span class="kt-menu__link-badge"></span></a></li>
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="addProspect.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Prospect</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('prospects.index')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Prospects</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('prospects.create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Prospect</span><span class="kt-menu__link-badge"></span></a></li>
                   </ul>
                </div>
             </li>
@@ -170,8 +170,8 @@
                <div class="kt-menu__submenu ">
                   <span class="kt-menu__arrow"></span>
                   <ul class="kt-menu__subnav">
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="allAreas.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Areas</span><span class="kt-menu__link-badge"></span></a></li>
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="addArea.php" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Area</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('areas.index')}}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Areas</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('areas.create')}}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Area</span><span class="kt-menu__link-badge"></span></a></li>
                   </ul>
                </div>
             </li>
