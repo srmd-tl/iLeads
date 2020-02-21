@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
-
+use Yajra\DataTables\EloquentDataTable;
+use App\DataTables\UsersDataTable;
 class UserController extends Controller
 {
     /**
@@ -11,9 +13,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        return view('users.index');
+         return $dataTable->render('users.index');
     }
 
     /**
