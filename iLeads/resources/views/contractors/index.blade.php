@@ -20,7 +20,7 @@
       <div class="kt-subheader__toolbar">
          <a href="" class="">
          </a>
-         <a href="addContractor.php" class="btn btn-label-brand btn-bold">
+         <a href="{{route('contractors.create')}}" class="btn btn-label-brand btn-bold">
          Add Contractor                    </a>
       </div>
    </div>

@@ -25,7 +25,7 @@
                         <div class="kt-subheader__toolbar">
                            <a href="" class="">
                            </a>
-                           <a href="addLead.php" class="btn btn-label-brand btn-bold">
+                           <a href="{{route('leads.create')}}" class="btn btn-label-brand btn-bold">
                            Add Lead                    </a>
                         </div>
                      </div>

@@ -25,7 +25,7 @@
       <div class="kt-subheader__toolbar">
          <a href="" class="">
          </a>
-         <a href="addArea.php" class="btn btn-label-brand btn-bold">
+         <a href="{{route('areas.create')}}" class="btn btn-label-brand btn-bold">
          Add Area                    </a>
       </div>
    </div>

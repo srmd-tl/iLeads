@@ -3,6 +3,7 @@
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <head>
       <meta charset="utf-8"/>
+      @yield('meta')
       <title>iLeads Software |@yield('title')</title>
       <!--*************************************************
              begin:: header files
@@ -20,7 +21,7 @@
       <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed " >
          <div class="kt-header-mobile__logo">
             <a href="{{asset('index-2.html')}}">
-            <img alt="Logo" src="{{asset('assets/images/logo.png')}}" width="160" />
+            <img alt="Logo" src="{{asset('images/logo.png')}}" width="160" />
             </a>
          </div>
          <div class="kt-header-mobile__toolbar">

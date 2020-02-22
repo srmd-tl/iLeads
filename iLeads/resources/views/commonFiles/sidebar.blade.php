@@ -170,8 +170,8 @@
                <div class="kt-menu__submenu ">
                   <span class="kt-menu__arrow"></span>
                   <ul class="kt-menu__subnav">
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('areas.index')}}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Areas</span><span class="kt-menu__link-badge"></span></a></li>
-                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('areas.create')}}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Area</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('areas.index')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">All Areas</span><span class="kt-menu__link-badge"></span></a></li>
+                     <li class="kt-menu__item " aria-haspopup="true" ><a  href="{{route('areas.create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add New Area</span><span class="kt-menu__link-badge"></span></a></li>
                   </ul>
                </div>
             </li>
