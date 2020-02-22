@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contractors;
 use Illuminate\Http\Request;
-
+use App\DataTables\ContractorsDataTable;
 class ContractorsController extends Controller
 {
     /**
@@ -12,9 +12,10 @@ class ContractorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ContractorsDataTable $dataTable)
     {
-        return view('contractors.index');
+
+        return $dataTable->render('contractors.index');
     }
 
     /**
