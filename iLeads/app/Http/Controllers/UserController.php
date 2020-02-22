@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Ileads;
+use App\User;
 use Illuminate\Http\Request;
-
+use Yajra\DataTables\EloquentDataTable;
+use App\DataTables\UsersDataTable;
 class UserController extends Controller
 {
     /**
@@ -12,10 +15,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        Mail::to("sarmad-sohail@hotmail.com")->send(new Ileads());
-        return view('users.index');
+        // Mail::to("sarmad-sohail@hotmail.com")->send(new Ileads());
+        // return view('users.index');
+         return $dataTable->render('users.index');
     }
 
     /**
