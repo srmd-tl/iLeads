@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Ileads;
+Route::get('mail', function () {
+	        Mail::to("sarmad-sohail@hotmail.com")->send(new Ileads());
 });
 Route::get('master', function () {
     return view('layouts/master');
@@ -22,7 +24,5 @@ Route::resource('leads','LeadsController');
 Route::resource('contractors','ContractorsController');
 Route::resource('prospects','ProspectsController');
 Route::resource('areas','AreasController');
-
-Auth::routes();
-
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');

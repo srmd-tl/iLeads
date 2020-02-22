@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Ileads;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,6 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        Mail::to("sarmad-sohail@hotmail.com")->send(new Ileads());
         return view('users.index');
     }
 
