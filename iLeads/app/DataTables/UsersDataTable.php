@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
@@ -20,17 +18,16 @@ class UsersDataTable extends DataTable
     public function dataTable($query)
     {
 
-
         return datatables()
-            ->eloquent($query)  
-            ->addColumn('action', function(User $user) {
-                    return '<td nowrap> <a href="'.route('user.edit',$user->id).'" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
+            ->eloquent($query)
+            ->addColumn('action', function (User $user) {
+                return '<td nowrap> <a href="' . route('user.edit', $user->id) . '" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
                      <i class="la la-edit"></i>
                      </a>
                      <a href="" data-toggle="modal" data-target="#deletePopuop" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
                      <i class="la la-trash-o"></i>
                      </a></td> ';
-                });
+            });
     }
 
     /**
@@ -52,18 +49,16 @@ class UsersDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('users-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+            ->setTableId('users-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->buttons(
+
+                Button::make('print')
+
+            );
     }
 
     /**
@@ -75,10 +70,10 @@ class UsersDataTable extends DataTable
     {
         return [
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
             Column::make('id'),
 
             Column::make('name'),

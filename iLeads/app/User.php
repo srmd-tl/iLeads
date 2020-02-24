@@ -3,12 +3,10 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-
-
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements  MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -38,4 +36,26 @@ class User extends Authenticatable implements  MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     *Cast To Carbon Object
+     **/
+    protected $dates = ["created_at"];
+  
+    /*Accessor*/
+    public function getNameAttribute()
+    {
+        return ucfirst($this->attributes['name']);
+    }
+  
+    /**
+     *   Relations
+     *
+     **/
+
+    public function contractors()
+    {
+        return $this->hasMany('App\Contractors');
+    }
+
 }

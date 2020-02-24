@@ -43,6 +43,6 @@
       <script src="{{asset('js/scripts.bundle.js')}}" type="text/javascript"></script>
       <!--end::Global Theme Bundle -->
 
-      <script src="{{ mix('js/app.js') }}"></script>
-      <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+<!--       <script src="{{ mix('js/app.js') }}"></script>
+      <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script> -->
       @stack('js')

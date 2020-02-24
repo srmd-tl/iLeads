@@ -158,7 +158,7 @@
                                           <span class="form-text text-muted">We'll never share your email with anyone else.</span>
                                        </div>
                                     </div>
-                                    <div class="form-group row validated">
+                                 <!--    <div class="form-group row validated">
                                        <label class="col-xl-3 col-lg-3 col-form-label" >Email Address</label> 
                                        <div class="col-lg-9 col-xl-9">
                                           <div class="input-group">
@@ -168,7 +168,7 @@
                                           </div>
                                           <div class="invalid-feedback">Shucks, check the formatting of that and try again.</div>
                                        </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group form-group-last row">
                                        <label class="col-xl-3 col-lg-3 col-form-label">Company Site</label>
                                        <div class="col-lg-9 col-xl-9">
