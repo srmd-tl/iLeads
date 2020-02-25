@@ -424,7 +424,11 @@
                         <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
                            <div class="kt-header__topbar-user">
                               <span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
-                              <span class="kt-header__topbar-username kt-hidden-mobile">Sarmad</span>
+                              <span class="kt-header__topbar-username kt-hidden-mobile">
+                                 @auth
+                                 {{auth()->user()->name}}
+                                 @endauth
+                              </span>
                               
                               <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">S</span>
                            </div>
@@ -498,8 +502,11 @@
                                  </div>
                               </a>
                               <div class="kt-notification__custom kt-space-between">
-                                 <a href="#" target="_blank" class="btn btn-label btn-label-brand btn-sm btn-bold">Sign Out</a>
-                                 
+                                 <form method="POST" action="{{route('logout')}}">
+                                    @csrf
+                                    <button class="btn btn-label btn-label-brand btn-sm btn-bold">Sign Out</button>
+                                
+                                 </form>
                               </div>
                            </div>
                            <!--end: Navigation -->
