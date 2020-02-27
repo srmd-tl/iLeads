@@ -54,6 +54,7 @@ class UsersDataTable extends DataTable
             ->minifiedAjax()
             ->dom('Bfrtip')
             ->orderBy(1)
+            ->pageLength(5)
             ->buttons(
 
                 Button::make('print')
@@ -74,9 +75,10 @@ class UsersDataTable extends DataTable
                 ->printable(false)
                 ->width(60)
                 ->addClass('text-center'),
-            Column::make('id'),
-
             Column::make('name'),
+            Column::make('email'),
+            Column::make('phone'),
+            Column::make('business_name'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];

@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Mail;
-use App\Mail\Ileads;
-use App\User;
-use Illuminate\Http\Request;
-use Yajra\DataTables\EloquentDataTable;
 use App\DataTables\UsersDataTable;
+use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
+
 class UserController extends Controller
 {
+    private $userRepository;
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +23,7 @@ class UserController extends Controller
     {
         // Mail::to("sarmad-sohail@hotmail.com")->send(new Ileads());
         // return view('users.index');
-         return $dataTable->render('users.index');
+        return $dataTable->render('users.index');
     }
 
     /**
@@ -40,7 +44,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->merge(["name"=>$request->first_name." ".$request->last_name,"password"=>bcrypt("123123123"),"role"=>config('constants.options.user')]);
+        return $user=$this->userRepository->store($request->only(["email","business_name","business_site","phone","name","password","role"]));
     }
 
     /**

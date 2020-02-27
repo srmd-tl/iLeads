@@ -52,7 +52,7 @@
                </div>
             </div>
          </div>
-         <div class="kt-wizard-v4__nav-item nav-item"  data-ktwizard-type="step">
+         <<!-- div class="kt-wizard-v4__nav-item nav-item"  data-ktwizard-type="step">
             <div class="kt-wizard-v4__nav-body">
                <div class="kt-wizard-v4__nav-number">
                   2
@@ -66,8 +66,8 @@
                   </div>
                </div>
             </div>
-         </div>
-         <div class="kt-wizard-v4__nav-item nav-item" data-ktwizard-type="step">
+         </div> -->
+      <!--    <div class="kt-wizard-v4__nav-item nav-item" data-ktwizard-type="step">
             <div class="kt-wizard-v4__nav-body">
                <div class="kt-wizard-v4__nav-number">
                   3
@@ -81,11 +81,11 @@
                   </div>
                </div>
             </div>
-         </div>
-         <div class="kt-wizard-v4__nav-item nav-item" data-ktwizard-type="step">
+         </div> -->
+         <!-- <div class="kt-wizard-v4__nav-item nav-item" data-ktwizard-type="step">
             <div class="kt-wizard-v4__nav-body">
                <div class="kt-wizard-v4__nav-number">
-                  4
+                  3
                </div>
                <div class="kt-wizard-v4__nav-label">
                   <div class="kt-wizard-v4__nav-label-title">
@@ -96,7 +96,8 @@
                   </div>
                </div>
             </div>
-         </div>
+         </div> -->
+
       </div>
    </div>
    <!--end: Form Wizard Nav -->
@@ -105,7 +106,8 @@
          <div class="kt-grid">
             <div class="kt-grid__item kt-grid__item--fluid kt-wizard-v4__wrapper">
                <!--begin: Form Wizard Form-->
-               <form class="kt-form" id="kt_user_add_form">
+               <form class="kt-form" id="kt_user_add_form" method="POST" action="{{route('user.store')}}">
+                  @csrf
                   <!--begin: Form Wizard Step 1-->
                   <div class="kt-wizard-v4__content" data-ktwizard-type="step-content" data-ktwizard-state="current">
                      <div class="kt-heading kt-heading--md">User's Profile Details:</div>
@@ -114,7 +116,7 @@
                            <div class="row">
                               <div class="col-xl-12">
                                  <div class="kt-section__body">
-                                    <div class="form-group row">
+                                <!--     <div class="form-group row">
                                        <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label>
                                        <div class="col-lg-9 col-xl-6">
                                           <div class="kt-avatar kt-avatar--outline" id="kt_user_add_avatar">
@@ -128,23 +130,33 @@
                                              </span>
                                           </div>
                                        </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group row">
                                        <label class="col-xl-3 col-lg-3 col-form-label">First Name</label>
                                        <div class="col-lg-9 col-xl-9">
-                                          <input class="form-control" type="text" value="Anna">
+                                          <input class="form-control" type="text" value="First Name" name="first_name">
                                        </div>
                                     </div>
                                     <div class="form-group row">
                                        <label class="col-xl-3 col-lg-3 col-form-label">Last Name</label>
                                        <div class="col-lg-9 col-xl-9">
-                                          <input class="form-control" type="text" value="Krox">
+                                          <input class="form-control" type="text" value="Last Name" name="last_name">
                                        </div>
                                     </div>
                                     <div class="form-group row">
-                                       <label class="col-xl-3 col-lg-3 col-form-label">Company Name</label>
+                                       <label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
                                        <div class="col-lg-9 col-xl-9">
-                                          <input class="form-control" type="text" value="Loop Inc.">
+                                          <div class="input-group">
+                                             <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
+                                             <input type="text" class="form-control" value="nick.watson@loop.com" placeholder="Email" aria-describedby="basic-addon1" name="email">
+                                          </div>
+                                          <span class="form-text text-muted">Email will not be publicly displayed. <a href="#" class="kt-link">Learn more</a>.</span>
+                                       </div>
+                                    </div>
+                                    <div class="form-group row">
+                                       <label class="col-xl-3 col-lg-3 col-form-label">Business Name</label>
+                                       <div class="col-lg-9 col-xl-9">
+                                          <input class="form-control" type="text" value="Loop Inc." name="business_name">
                                           <span class="form-text text-muted">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
                                        </div>
                                     </div>
@@ -153,7 +165,7 @@
                                        <div class="col-lg-9 col-xl-9">
                                           <div class="input-group">
                                              <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
-                                             <input type="text" class="form-control" value="+45678967456" placeholder="Phone" aria-describedby="basic-addon1">
+                                             <input type="text" class="form-control" value="+45678967456" placeholder="Phone" aria-describedby="basic-addon1" name="phone">
                                           </div>
                                           <span class="form-text text-muted">We'll never share your email with anyone else.</span>
                                        </div>
@@ -170,10 +182,10 @@
                                        </div>
                                     </div> -->
                                     <div class="form-group form-group-last row">
-                                       <label class="col-xl-3 col-lg-3 col-form-label">Company Site</label>
+                                       <label class="col-xl-3 col-lg-3 col-form-label">Business Site</label>
                                        <div class="col-lg-9 col-xl-9">
                                           <div class="input-group">
-                                             <input type="text" class="form-control" placeholder="Username" value="loop">
+                                             <input type="text" class="form-control" placeholder="Username" value="loop" name="business_site">
                                              <div class="input-group-append"><span class="input-group-text">.com</span></div>
                                           </div>
                                        </div>
@@ -437,7 +449,7 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="kt-separator kt-separator--border-dashed kt-separator--portlet-fit kt-separator--space-lg"></div>
+                                 <!--    <div class="kt-separator kt-separator--border-dashed kt-separator--portlet-fit kt-separator--space-lg"></div>
                                     <div class="form-group row">
                                        <div class="col-lg-9 col-xl-6">
                                           <h3 class="kt-section__title kt-section__title-md">User's Account Settings</h3>
@@ -473,7 +485,7 @@
                                        <div class="col-lg-9 col-xl-6">
                                           <button type="button" class="btn btn-label-danger btn-bold btn-sm kt-margin-t-5 kt-margin-b-5">Deactivate your account ?</button>
                                        </div>
-                                    </div>
+                                    </div> -->
                                  </div>
                               </div>
                            </div>
@@ -482,7 +494,7 @@
                   </div>
                   <!--end: Form Wizard Step 2-->
                   <!--begin: Form Wizard Step 3-->
-                  <div class="kt-wizard-v4__content" data-ktwizard-type="step-content">
+            <!--       <div class="kt-wizard-v4__content" data-ktwizard-type="step-content">
                      <div class="kt-heading kt-heading--md">Setup Your Address</div>
                      <div class="kt-form__section kt-form__section--first">
                         <div class="kt-wizard-v4__form">
@@ -780,7 +792,7 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                   <!--end: Form Wizard Step 3-->
                   <!--begin: Form Wizard Step 4-->
                   <div class="kt-wizard-v4__content" data-ktwizard-type="step-content">

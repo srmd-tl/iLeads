@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','business_name','business_site','phone','role'
     ];
 
     /**
@@ -41,13 +41,14 @@ class User extends Authenticatable implements MustVerifyEmail
      *Cast To Carbon Object
      **/
     protected $dates = ["created_at"];
-  
+
     /*Accessor*/
     public function getNameAttribute()
     {
         return ucfirst($this->attributes['name']);
     }
   
+
     /**
      *   Relations
      *
