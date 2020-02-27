@@ -4,12 +4,12 @@
 <link href="{{asset('css/wizard-4.css')}}" rel="stylesheet" type="text/css" />
 @endpush
 @section('subHeader')
-  
+
 <div class="kt-subheader   kt-grid__item" id="kt_subheader">
                      <div class="kt-container  kt-container--fluid ">
                         <div class="kt-subheader__main">
                            <h3 class="kt-subheader__title">
-                              New User                        
+                              New User
                            </h3>
                            <span class="kt-subheader__separator kt-subheader__separator--v"></span>
                            <div class="kt-subheader__group" id="kt_subheader_search">
@@ -24,8 +24,8 @@
                               <button type="button" class="btn btn-brand btn-bold">
                               Submit
                             </button>
-                            
-                              
+
+
                            </div>
                         </div>
                      </div>
@@ -159,7 +159,7 @@
                                        </div>
                                     </div>
                                  <!--    <div class="form-group row validated">
-                                       <label class="col-xl-3 col-lg-3 col-form-label" >Email Address</label> 
+                                       <label class="col-xl-3 col-lg-3 col-form-label" >Email Address</label>
                                        <div class="col-lg-9 col-xl-9">
                                           <div class="input-group">
                                              <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
@@ -841,5 +841,9 @@
       </div>
    </div>
 </div>
+@push('js')
+      <script src="{{asset('js/add-user.js')}}" type="text/javascript"></script>
 
+@endpush
 @endsection
+
