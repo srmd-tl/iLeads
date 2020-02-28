@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','business_name','business_site','phone','role'
+        'name', 'email', 'password', 'business_name', 'business_site', 'phone', 'role',
     ];
 
     /**
@@ -47,7 +47,16 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return ucfirst($this->attributes['name']);
     }
-  
+    /**
+     * Set the user's pasword.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 
     /**
      *   Relations

@@ -4,7 +4,7 @@
    <head>
       <meta charset="utf-8"/>
       @yield('meta')
-      <title>iLeads Software |@yield('title')</title>
+      <title>iLeads Software | @yield('title')</title>
       <!--*************************************************
              begin:: header files
       ************************************************* -->

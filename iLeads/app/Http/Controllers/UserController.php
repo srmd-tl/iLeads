@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\DataTables\UsersDataTable;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-
+use App\User;
+use Hash;
 class UserController extends Controller
 {
     private $userRepository;
@@ -44,7 +45,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->merge(["name"=>$request->first_name." ".$request->last_name,"password"=>bcrypt("123123123"),"role"=>config('constants.options.user')]);
+        $request->merge(["password"=>bcrypt("123123123"),"role"=>config('constants.options.user')]);
         return $user=$this->userRepository->store($request->only(["email","business_name","business_site","phone","name","password","role"]));
     }
 
@@ -57,6 +58,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -65,9 +67,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         //
+        return view('users.view',["user"=>$user]);
     }
 
     /**
@@ -77,19 +80,30 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        if(Hash::check($request->old_password,$user->password))
+        {
+            
+            $this->userRepository->update($user,$request->all());
+        }
+        else
+        {
+            return back()->with('error','User Updation Failed!');
+        }
+        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+        $this->userRepository->delete($id);
+        return back()->with('success','User Deleted');
     }
 }

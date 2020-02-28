@@ -46,11 +46,12 @@ class UserRepository
     /**
      * Update User*
      *
-     * @var array
+     * @param App\User $user
+     * @param Request $data
      */
-    public function update($data, $id)
+    public function update($user,$data)
     {
-        $user = self::show($id);
+      
         return $user->update($data);
     }
 

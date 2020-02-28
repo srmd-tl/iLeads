@@ -21,12 +21,17 @@ class UsersDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', function (User $user) {
-                return '<td nowrap> <a href="' . route('user.edit', $user->id) . '" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
+                return '<td > <div class="d-flex"> <a href="' . route('user.edit', $user->id) . '" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
                      <i class="la la-edit"></i>
                      </a>
-                     <a href="" data-toggle="modal" data-target="#deletePopuop" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
+                     <form method="POST" action="' . route('user.destroy', $user->id) . '">
+                     '.csrf_field().
+                     method_field('DELETE').'
+                     <button class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
                      <i class="la la-trash-o"></i>
-                     </a></td> ';
+                     </button>
+                     <form>
+                     </div></td> ';
             });
     }
 

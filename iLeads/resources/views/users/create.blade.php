@@ -131,16 +131,11 @@
                                           </div>
                                        </div>
                                     </div> -->
+                         
                                     <div class="form-group row">
-                                       <label class="col-xl-3 col-lg-3 col-form-label">First Name</label>
+                                       <label class="col-xl-3 col-lg-3 col-form-label">Name</label>
                                        <div class="col-lg-9 col-xl-9">
-                                          <input class="form-control" type="text" value="First Name" name="first_name">
-                                       </div>
-                                    </div>
-                                    <div class="form-group row">
-                                       <label class="col-xl-3 col-lg-3 col-form-label">Last Name</label>
-                                       <div class="col-lg-9 col-xl-9">
-                                          <input class="form-control" type="text" value="Last Name" name="last_name">
+                                          <input class="form-control" type="text" value="Name" name="name">
                                        </div>
                                     </div>
                                     <div class="form-group row">
