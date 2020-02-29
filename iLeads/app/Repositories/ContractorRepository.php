@@ -5,63 +5,63 @@ namespace App\Repositories;
 use App\Contractors;
 use Config;
 
-class ContractorsRepository
+class ContractorRepository
 {
     //
-    /*Return All Clients*/
+    /*Return All Contractors*/
     public function all($page = null)
     {
         return
-        auth()->user()->role == Config::get('constants.options.admin') ?
+        auth()->user()->isAdmin()?
         Contractors::paginate($page) :
         auth()->user()->contractors()->paginate($page)
         ;
     }
 
     /**
-     *Create new Client*
+     *Create new Contractors*
      *
      * @var array
      */
     public function store($data)
     {
-        return Client::create($data);
+        return Contractors::create($data);
 
     }
 
     /**
-     *Show a Client*
+     *Show a Contractors*
      *
      * @var array
      */
     public function show($id)
     {
-        return Client::findOrFail($id);
+        return Contractors::findOrFail($id);
     }
 
     /**
-     * Update Client*
+     * Update Contractors*
      *
      * @var array
      */
     public function update($data, $id)
     {
-        $Client = self::show($id);
-        if (auth()->user()->id == $Client->user->id) {
-            return $Client->update($data);
+        $contractors = self::show($id);
+        if (auth()->user()->id == $contractors->user->id) {
+            return $contractors->update($data);
 
         }
         return false;
     }
 
     /**
-     * Delete Client*
+     * Delete Contractors*
      *
      * @var id
      */
     public function delete($id)
     {
-        return Client::find($id)->delete();
+        return Contractors::find($id)->delete();
     }
 
 }

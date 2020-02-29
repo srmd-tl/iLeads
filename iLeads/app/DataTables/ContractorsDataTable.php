@@ -5,8 +5,6 @@ namespace App\DataTables;
 use App\Contractors;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class ContractorsDataTable extends DataTable
@@ -21,14 +19,19 @@ class ContractorsDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-             ->addColumn('action', function(Contractors $contractors) {
-                    return '<td nowrap> <a href="'.route('contractors.edit',$contractors->id).'" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
+            ->addColumn('action', function (Contractors $contractor) {
+                return '<td > <div class="d-flex"> <a href="' . route('contractors.edit', $contractor->id) . '" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
                      <i class="la la-edit"></i>
                      </a>
-                     <a href="" data-toggle="modal" data-target="#deletePopuop" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
+                     <form method="POST" action="' . route('contractors.destroy', $contractor->id) . '">
+                     ' . csrf_field() .
+                method_field('DELETE') . '
+                     <button class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
                      <i class="la la-trash-o"></i>
-                     </a></td> ';
-                });
+                     </button>
+                     <form>
+                     </div></td> ';
+            });
     }
 
     /**
@@ -50,15 +53,15 @@ class ContractorsDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('contractors-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('print')
-                      
-                    );
+            ->setTableId('contractors-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->buttons(
+                Button::make('print')
+
+            );
     }
 
     /**
@@ -70,12 +73,14 @@ class ContractorsDataTable extends DataTable
     {
         return [
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('name'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
+            Column::make('company_name'),
+            Column::make('mobile_phone'),
+            Column::make('email'),
+            Column::make('address'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];

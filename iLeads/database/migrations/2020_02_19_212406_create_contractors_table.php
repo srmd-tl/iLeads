@@ -15,11 +15,15 @@ class CreateContractorsTable extends Migration
     {
         Schema::create('contractors', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('company_name');
             $table->string('mobile_phone');
             $table->string('email');
             $table->string('address');
             $table->timestamps();
+            /*Foreign Key*/
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 

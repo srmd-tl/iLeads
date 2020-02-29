@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Contractors;
-use Illuminate\Http\Request;
 use App\DataTables\ContractorsDataTable;
+use App\Repositories\ContractorRepository;
+use Illuminate\Http\Request;
+use App\Http\Requests\ContractorRequest;
 class ContractorsController extends Controller
 {
+    private $contractorRepository;
+    public function __construct(ContractorRepository $contractorRepository)
+    {
+        $this->contractorsRepository = $contractorRepository;
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,18 +42,19 @@ class ContractorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContractorRequest $request)
     {
-        //
+        $this->contractorsRepository->store($request->merge(['user_id' => auth()->user()->id])->all());
+        return redirect()->route('contractors.index')->with('success','A new contractor added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Contractors  $contractors
+     * @param  \App\Contractors  $contractor
      * @return \Illuminate\Http\Response
      */
-    public function show(Contractors $contractors)
+    public function show(Contractors $contractor)
     {
         //
     }
@@ -53,34 +62,39 @@ class ContractorsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Contractors  $contractors
+     * @param  \App\Contractors  $contractor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contractors $contractors)
+    public function edit(Contractors $contractor)
     {
         //
+        return view('contractors.view', ["contractor" => $contractor]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contractors  $contractors
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contractors $contractors)
+    public function update(Request $request, $id)
     {
-        //
+        $this->contractorsRepository->update($request->all(),$id);
+        return redirect()->route('contractors.index')->with('success','Contractor Info updated!');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Contractors  $contractors
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contractors $contractors)
+    public function destroy($id)
     {
-        //
+        $this->contractorsRepository->delete($id);
+        return redirect()->route('contractors.index')->with('success','Contractor Deleted!');
+        
     }
 }

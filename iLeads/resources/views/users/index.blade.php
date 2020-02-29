@@ -9,7 +9,7 @@
  <div class="kt-container  kt-container--fluid ">
     <div class="kt-subheader__main">
        <h3 class="kt-subheader__title">
-          Users                           
+          Users
        </h3>
        <span class="kt-subheader__separator kt-subheader__separator--v"></span>
        <div class="kt-subheader__group" id="kt_subheader_search">
@@ -39,5 +39,12 @@
 @push('js')
 <script src="{{ mix('js/app.js') }}"></script>
       <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+            <script>
+        $('[data-toggle="dropdown"]').on("click",function(){
+          $(this).parent().toggleClass("show");
+        $(this).next().toggleClass("show");
+
+        });
+      </script>
      {{$dataTable->scripts()}}
 @endpush

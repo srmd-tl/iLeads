@@ -20,7 +20,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('layouts/master');
     })->name('home');
-    Route::resource('user', 'UserController');
+    Route::resource('user', 'UserController')->middleware('isAdmin');
     Route::resource('leads', 'LeadsController');
     Route::resource('contractors', 'ContractorsController');
     Route::resource('prospects', 'ProspectsController');

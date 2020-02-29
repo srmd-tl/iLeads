@@ -68,4 +68,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\Contractors');
     }
 
+
+    /*Custom Functions*/
+    public function isAdmin()
+    {
+        return  $this->role==config('constants.options.admin');
+    }
+
 }

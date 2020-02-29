@@ -27,6 +27,7 @@
 </div>
 @endsection
 @section('content')
+@include('alerts.alert')
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
    <div class="kt-portlet kt-portlet--mobile">
       <div class="kt-portlet__body">
@@ -38,6 +39,15 @@
 </div>
 @endsection
 @push('js')
+<script src="{{ mix('js/app.js') }}"></script>
+      <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+            <script>
+        $('[data-toggle="dropdown"]').on("click",function(){
+          $(this).parent().toggleClass("show");
+        $(this).next().toggleClass("show");
+
+        });
+      </script>
     {{$dataTable->scripts()}}
 @endpush
 

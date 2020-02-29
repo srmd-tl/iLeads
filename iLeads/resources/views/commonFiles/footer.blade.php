@@ -42,12 +42,6 @@
       <script src="{{asset('js/plugins.bundle.js')}}" type="text/javascript"></script>
       <script src="{{asset('js/scripts.bundle.js')}}" type="text/javascript"></script>
       <!--end::Global Theme Bundle -->
-      <script>
-        $('[data-toggle="dropdown"]').on("click",function(){
-          $(this).parent().toggleClass("show");
-        $(this).next().toggleClass("show");
 
-        });
-      </script>
       
       @stack('js')

@@ -11,7 +11,7 @@
          <span class="kt-subheader__separator kt-subheader__separator--v"></span>
          <div class="kt-subheader__group" id="kt_subheader_search">
             <span class="kt-subheader__desc" id="kt_subheader_total">
-            Add Contractor   
+            Edit Contractor   
             </span>
          </div>
       </div>
@@ -26,45 +26,37 @@
          <div class="kt-portlet__head">
             <div class="kt-portlet__head-label">
                <h3 class="kt-portlet__head-title">
-                  Add New Contractor   
+                  Edit A Contractor   
                </h3>
             </div>
          </div>
          <!--begin::Form-->
-         <form class="kt-form" method="POST" action="{{route('contractors.store')}}">
+         <form class="kt-form" method="POST" action="{{route('contractors.update',$contractor->id)}}">
             @csrf
+            @method('PUT')
             <div class="kt-portlet__body">
                <div class="form-group row">
-              
-                   <div class="form-group validated col-lg-6">
-                    <label class="form-control-label" for="inputWarning1">Contractor's Company Name:</label>
-                     <input type="text" class="form-control  @error('company_name') is-invalid @enderror" placeholder="Enter Contractor Company Name" name="company_name">
-                     @error('company_name')
-                     <div class="invalid-feedback">{{ $message }}</div>
-                     @enderror
-                   </div>
-                  <div class="col-lg-6 form-group validated">
+                  <div class="col-lg-6">
+                     <label>Contractor's Company Name:</label>
+                     <input type="text" class="form-control" placeholder="Enter Contractor Company Name" name="company_name" value="{{$contractor->company_name}}">
+                     <span class="form-text text-muted">Please enter Contractor Company Name</span>
+                  </div>
+                  <div class="col-lg-6">
                      <label class="">Contactor's Mobile Phone:</label>
-                     <input type="number" class="form-control @error('mobile_phone') is-invalid @enderror" placeholder="Enter Contractor Mobile Phone" name="mobile_phone">
-                     @error('mobile_phone')
-                     <div class="invalid-feedback">{{ $message }}</div>
-                     @enderror
+                     <input type="number" class="form-control" placeholder="Enter Contractor Mobile Phone" name="mobile_phone" value="{{$contractor->mobile_phone}}">
+                     <span class="form-text text-muted">Please enter Contactor's Mobile Phone</span>
                   </div>
                </div>
                <div class="form-group row">
-                  <div class="col-lg-6 form-group validated">
+                  <div class="col-lg-6">
                      <label>Contractor's Email:</label>
-                     <input type="email" class="form-control @error('email') is-invalid @enderror " placeholder="Enter Contractor Email" name="email">
-                       @error('email')
-                     <div class="invalid-feedback">{{ $message }}</div>
-                     @enderror
+                     <input type="email" class="form-control" placeholder="Enter Contractor Email" name="email" value="{{$contractor->email}}">
+                     <span class="form-text text-muted">Please enter Contractor Email</span>
                   </div>
-                  <div class="col-lg-6 form-group validated">
+                  <div class="col-lg-6">
                      <label class="">Contactor's Address:</label>
-                     <input type="text" class="form-control  @error('address') is-invalid @enderror" placeholder="Enter Contractor Address" name="address">
-                       @error('address')
-                     <div class="invalid-feedback">{{ $message }}</div>
-                     @enderror
+                     <input type="text" class="form-control" placeholder="Enter Contractor Address" name="address" value="{{$contractor->address}}">
+                     <span class="form-text text-muted">Please enter Contactor's Address</span>
                   </div>
                </div>
             </div>
