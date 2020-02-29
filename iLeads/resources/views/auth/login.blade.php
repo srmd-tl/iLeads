@@ -35,17 +35,23 @@
                     <img src="{{asset('images/loginLogo.png')}}" alt="loginLogo">   
                   </a>
                 </div>
-                <div class="kt-login__signin">
+                <div class="kt-login__signin ">
                   <div class="kt-login__head">
                     <h3 class="kt-login__title">Sign In To Admin</h3>
                   </div>
                    <form method="POST" class="kt-form" action="{{ route('login') }}">
                         @csrf
-                    <div class="input-group">
-                      <input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
+                    <div class="input-group validated">
+                      <input class="form-control  @error('email') is-invalid @enderror" type="text" placeholder="Email" name="email" autocomplete="off">
+                      @error('email')
+                     <div class="invalid-feedback">{{ $message }}</div>
+                     @enderror
                     </div>
-                    <div class="input-group">
-                      <input class="form-control" type="password" placeholder="Password" name="password">
+                    <div class="input-group validated">
+                      <input class="form-control @error('password') is-invalid @enderror" type="password" placeholder="Password" name="password">
+                      @error('password')
+                     <div class="invalid-feedback">{{ $message }}</div>
+                     @enderror
                     </div>
                     <div class="row kt-login__extra">
                       <div class="col">
