@@ -48,7 +48,19 @@ var KTUserAdd = function() {
                             type: "success",
                             confirmButtonClass: "btn btn-secondary"
                         })
-                    }
+                    },
+                    error: function(data ) { console.log(data);
+
+                        KTApp.unprogress(n), swal.fire({
+                            title: "",
+                            text: "User has not been created successfully !",
+                            type: "error",
+                            confirmButtonClass: "btn btn-danger"
+                        })
+
+
+                     },
+
                 }))
             }), new KTAvatar("kt_user_add_avatar")
         }
