@@ -6,12 +6,12 @@
    <div class="kt-container  kt-container--fluid ">
       <div class="kt-subheader__main">
          <h3 class="kt-subheader__title">
-            Contractor                       
+            Contractor
          </h3>
          <span class="kt-subheader__separator kt-subheader__separator--v"></span>
          <div class="kt-subheader__group" id="kt_subheader_search">
             <span class="kt-subheader__desc" id="kt_subheader_total">
-            Add Contractor   
+            Add Contractor
             </span>
          </div>
       </div>
@@ -26,7 +26,7 @@
          <div class="kt-portlet__head">
             <div class="kt-portlet__head-label">
                <h3 class="kt-portlet__head-title">
-                  Add New Contractor   
+                  Add New Contractor
                </h3>
             </div>
          </div>
@@ -35,7 +35,7 @@
             @csrf
             <div class="kt-portlet__body">
                <div class="form-group row">
-              
+
                    <div class="form-group validated col-lg-6">
                     <label class="form-control-label" for="inputWarning1">Contractor's Company Name:</label>
                      <input type="text" class="form-control  @error('company_name') is-invalid @enderror" placeholder="Enter Contractor Company Name" name="company_name">
@@ -67,7 +67,24 @@
                      @enderror
                   </div>
                </div>
+               <div class="form-group row">
+                <div class="form-group validated col-lg-6">
+                 <label class="form-control-label" for="inputWarning1">Assign Areas:</label>
+                    <select name="areas[]" class="form-control" aria-invalid="false" required="" multiple="">
+                        @forelse($areas as $area)
+                        <option value="{{$area->id}}">{{$area->name}}</option>
+                        @empty
+                        <p>No, Area Found</p>
+                        @endforelse                                        
+                     </select>
+                  @error('company_name')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+
             </div>
+            </div>
+
             <div class="kt-portlet__foot">
                <div class="kt-form__actions">
                   <div class="row">

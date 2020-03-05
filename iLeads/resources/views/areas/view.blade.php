@@ -1,5 +1,5 @@
 @extends('layouts/master')
-@section('title','Area Add')
+@section('title','Area Update')
 @section('subHeader')
 <div class="kt-subheader   kt-grid__item" id="kt_subheader">
    <div class="kt-container  kt-container--fluid ">
@@ -10,7 +10,7 @@
          <span class="kt-subheader__separator kt-subheader__separator--v"></span>
          <div class="kt-subheader__group" id="kt_subheader_search">
             <span class="kt-subheader__desc" id="kt_subheader_total">
-            Add Area   
+            Edit Area   
             </span>
          </div>
       </div>
@@ -25,18 +25,19 @@
          <div class="kt-portlet__head">
             <div class="kt-portlet__head-label">
                <h3 class="kt-portlet__head-title">
-                  Add New Area   
+                  Edit An Area   
                </h3>
             </div>
          </div>
          <!--begin::Form-->
-         <form class="kt-form" method="post" action="{{route('areas.store')}}">
+         <form class="kt-form" method="post" action="{{route('areas.update',$area->id)}}">
             @csrf
+            @method('PUT')
             <div class="kt-portlet__body">
                <div class="form-group row">
                   <div class="col-lg-6 validated">
                      <label>Area Name:</label>
-                     <input type="text" class="form-control   @error('name') is-invalid @enderror" placeholder="Enter Area name" name="name">
+                     <input type="text" class="form-control   @error('name') is-invalid @enderror" placeholder="Enter Area name" name="name" value="{{$area->name}}">
                      @error('name')
                      <div class="invalid-feedback">{{ $message }}</div>
                      @enderror

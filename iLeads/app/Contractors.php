@@ -24,5 +24,13 @@ class Contractors extends Model
     {
         return $this->belongsTo(User::class);
     }
+    /**
+     *  Belongs TO Many Areas
+     *
+     */
+    public function areas()
+    {
+        return $this->belongsToMany(Area::class, 'area_contractors', 'contractor_id', 'area_id');
+    }
 
 }

@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Contractors;
 use App\DataTables\ContractorsDataTable;
+use App\Http\Requests\ContractorRequest;
+use App\Repositories\AreaRepositoryEloquent;
 use App\Repositories\ContractorRepository;
 use Illuminate\Http\Request;
-use App\Http\Requests\ContractorRequest;
+
 class ContractorsController extends Controller
 {
     private $contractorRepository;
-    public function __construct(ContractorRepository $contractorRepository)
+    private $areaRepository;
+    public function __construct(ContractorRepository $contractorRepository, AreaRepositoryEloquent $areaRepository)
     {
         $this->contractorsRepository = $contractorRepository;
+        $this->areaRepository        = $areaRepository;
 
     }
     /**
@@ -33,7 +37,8 @@ class ContractorsController extends Controller
      */
     public function create()
     {
-        return view('contractors.create');
+        $areas = $this->areaRepository->all();
+        return view('contractors.create', ["areas" => $areas]);
     }
 
     /**
@@ -44,8 +49,9 @@ class ContractorsController extends Controller
      */
     public function store(ContractorRequest $request)
     {
-        $this->contractorsRepository->store($request->merge(['user_id' => auth()->user()->id])->all());
-        return redirect()->route('contractors.index')->with('success','A new contractor added!');
+        $data = $request->merge(['user_id' => auth()->user()->id]);
+        $this->contractorsRepository->store($data->except('areas'), $request->areas);
+        return redirect()->route('contractors.index')->with('success', 'A new contractor added!');
     }
 
     /**
@@ -67,8 +73,9 @@ class ContractorsController extends Controller
      */
     public function edit(Contractors $contractor)
     {
-        //
-        return view('contractors.view', ["contractor" => $contractor]);
+        $areas           = $this->areaRepository->all();
+        $contractorAreas = $contractor->areas->pluck('id')->toArray();
+        return view('contractors.view', ["contractor" => $contractor, "areas" => $areas,"contractorAreas"=>$contractorAreas]);
     }
 
     /**
@@ -80,8 +87,9 @@ class ContractorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->contractorsRepository->update($request->all(),$id);
-        return redirect()->route('contractors.index')->with('success','Contractor Info updated!');
+        $data=$request->except('csrf_token','areas');
+        $this->contractorsRepository->update($data, $id,$request->areas);
+        return redirect()->route('contractors.index')->with('success', 'Contractor Info updated!');
 
     }
 
@@ -94,7 +102,7 @@ class ContractorsController extends Controller
     public function destroy($id)
     {
         $this->contractorsRepository->delete($id);
-        return redirect()->route('contractors.index')->with('success','Contractor Deleted!');
-        
+        return redirect()->route('contractors.index')->with('success', 'Contractor Deleted!');
+
     }
 }

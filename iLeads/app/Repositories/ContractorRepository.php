@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Contractors;
-use Config;
 
 class ContractorRepository
 {
@@ -12,7 +11,7 @@ class ContractorRepository
     public function all($page = null)
     {
         return
-        auth()->user()->isAdmin()?
+        auth()->user()->isAdmin() ?
         Contractors::paginate($page) :
         auth()->user()->contractors()->paginate($page)
         ;
@@ -23,9 +22,11 @@ class ContractorRepository
      *
      * @var array
      */
-    public function store($data)
+    public function store($data, $attachment)
     {
-        return Contractors::create($data);
+        $contractor = Contractors::create($data);
+        $contractor->areas()->attach($attachment);
+        return $contractor;
 
     }
 
@@ -44,11 +45,12 @@ class ContractorRepository
      *
      * @var array
      */
-    public function update($data, $id)
+    public function update($data, $id, $sync)
     {
-        $contractors = self::show($id);
-        if (auth()->user()->id == $contractors->user->id) {
-            return $contractors->update($data);
+        $contractor = self::show($id);
+        if (auth()->user()->id == $contractor->user->id) {
+            $contractor->areas()->sync($sync);
+            return $contractor->update($data);
 
         }
         return false;

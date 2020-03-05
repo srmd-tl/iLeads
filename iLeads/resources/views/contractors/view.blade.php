@@ -59,6 +59,24 @@
                      <span class="form-text text-muted">Please enter Contactor's Address</span>
                   </div>
                </div>
+                <div class="form-group row">
+                <div class="form-group validated col-lg-6">
+                 <label class="form-control-label" for="inputWarning1">Assign Areas:</label>
+                    <select name="areas[]" class="form-control" aria-invalid="false" required="" multiple="">
+                        @forelse($areas as $area)
+                        <option value="{{$area->id}}" {{in_array($area->id, $contractorAreas)?"selected":null}}
+                                   
+                           >{{$area->name}}</option>
+                        @empty
+                        <p>No, Area Found</p>
+                        @endforelse                                        
+                     </select>
+                  @error('company_name')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
+                </div>
+
+            </div>
             </div>
             <div class="kt-portlet__foot">
                <div class="kt-form__actions">
