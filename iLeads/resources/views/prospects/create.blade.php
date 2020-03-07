@@ -35,19 +35,19 @@
             <div class="kt-portlet__body">
                <div class="form-group row">
                   <div class="col-lg-6">
-                     <label>First Name:</label>
+                     <label class="text-left">First Name:</label>
                      <input type="text" class="form-control" placeholder="Enter first name">
                      <span class="form-text text-muted">Please enter your first name</span>
                   </div>
                   <div class="col-lg-6">
-                     <label>Last Name:</label>
+                     <label class="text-left">Last Name:</label>
                      <input type="text" class="form-control" placeholder="Enter last name">
                      <span class="form-text text-muted">Please enter your last name</span>
                   </div>
                </div>
                <div class="form-group row">
                   <div class="col-lg-6">
-                     <label>Address:</label>
+                     <label class="text-left">Address:</label>
                      <div class="kt-input-icon">
                         <input type="text" class="form-control" placeholder="Enter your address">
                         <span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="la la-map-marker"></i></span></span>
@@ -65,7 +65,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-lg-6">
-                     <label>City:</label>
+                     <label class="text-left">City:</label>
                      <div class="kt-input-icon">
                         <input type="text" class="form-control" placeholder="Enter your city">
                         <span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="la la-map-pin"></i></span></span>
@@ -83,7 +83,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-lg-6">
-                     <label>Zip:</label>
+                     <label class="text-left">Zip:</label>
                      <div class="kt-input-icon">
                         <input type="text" class="form-control" placeholder="Enter your zip code">
                         <span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="la la-map-o"></i></span></span>
@@ -93,7 +93,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-lg-6">
-                     <label>Have you experienced high winds in your area?</label>
+                     <label class="text-left">Have you experienced high winds in your area?</label>
                      <div class="kt-radio-inline">
                         <label class="kt-radio kt-radio--solid">
                         <input type="radio" name="highWinds" checked="" value="2">Yes
@@ -107,7 +107,7 @@
                      <span class="form-text text-muted">Please select one of them</span>
                   </div>
                   <div class="col-lg-6">
-                     <label>Do you have leaks or damage to the inside or outside of your home?</label>
+                     <label class="text-left">Do you have leaks or damage to the inside or outside of your home?</label>
                      <div class="kt-radio-inline">
                         <label class="kt-radio kt-radio--solid">
                         <input type="radio" name="leaks" checked="" value="2">Yes
@@ -123,7 +123,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-lg-6">
-                     <label>How old is your roof?</label>
+                     <label class="text-left">How old is your roof?</label>
                      <div class="kt-radio-inline">
                         <label class="kt-radio kt-radio--solid">
                         <input type="radio" name="olf" checked="" value="2">1 Year
@@ -137,7 +137,7 @@
                      <span class="form-text text-muted">Please select one of them</span>
                   </div>
                   <div class="col-lg-6">
-                     <label>Are you currently missing any shingles on your roof?</label>
+                     <label class="text-left">Are you currently missing any shingles on your roof?</label>
                      <div class="kt-radio-inline">
                         <label class="kt-radio kt-radio--solid">
                         <input type="radio" name="shingles" checked="" value="2">Yes
@@ -153,7 +153,7 @@
                </div>
                <div class="form-group row">
                   <div class="col-lg-6">
-                     <label>Have you had any recent repairs to your roof?</label>
+                     <label class="text-left">Have you had any recent repairs to your roof?</label>
                      <div class="kt-radio-inline">
                         <label class="kt-radio kt-radio--solid">
                         <input type="radio" name="recentRepairs" checked="" value="2">Yes
@@ -167,7 +167,7 @@
                      <span class="form-text text-muted">Please select one of them</span>
                   </div>
                   <div class="col-lg-6">
-                     <label>What is the best day and time to schedule your FREE roof inspection?</label>
+                     <label class="text-left">What is the best day and time to schedule your FREE roof inspection?</label>
                      <div class="kt-radio-inline">
                         <label class="kt-radio kt-radio--solid">
                         <input type="radio" name="bestTime" checked="" value="2">AM
@@ -181,6 +181,22 @@
                      <span class="form-text text-muted">Please select one of them</span>
                   </div>
                </div>
+               <div class="form-group row" id="moreQuestionDiv">
+                  
+               </div>
+                <div class="form-group row">
+                  <div class="col-lg-12">
+                     <h5 class="kt-font-info">Add More Questions?</h5>
+                    
+                     <div class="input-group">
+                     <input type="text" class="form-control" id="writeQuestion" placeholder="Write your Question here...">
+                     <div class="input-group-append">
+                        <button class="btn btn-primary" id="addMoreQuestion" type="button">Go!</button>
+                     </div>
+                  </div>
+                  </div>
+               </div>
+               
                <div class="form-group row">
                   <div class="col-lg-12">
                      <label for="">Enter Prospects Notes:</label>
